@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Universe | Все о Формуле 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/f1-logo.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-flag-checkered"></i>
+                <span>F1 UNIVERSE</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Главная</a>
+                <a href="#drivers" class="nav-link"><i class="fas fa-user"></i> Пилоты</a>
+                <a href="#teams" class="nav-link"><i class="fas fa-car"></i> Команды</a>
+                <a href="#standings" class="nav-link"><i class="fas fa-trophy"></i> Турнир</a>
+                <a href="#calendar" class="nav-link"><i class="fas fa-calendar"></i> Календарь</a>
+                <a href="#media" class="nav-link"><i class="fas fa-video"></i> Медиа</a>
+                <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> О нас</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Добро пожаловать во вселенную <span class="f1-red">Формулы 1</span></h1>
+                <p>Самый быстрый спорт на планете. Исследуйте команды, пилотов, трассы и историю.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Пилота</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Команд</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Гран-при</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2><i class="fas fa-newspaper"></i> Последние новости</h2>
+                <div class="news-grid" id="news-grid">
+                </div>
+            </div>
+            <div class="section">
+                <h2><i class="fas fa-crown"></i> Топ-5 пилотов сезона</h2>
+                <div class="top-drivers" id="top-drivers">
+                </div>
+            </div>
+            <div class="section">
+                <h2><i class="fas fa-lightbulb"></i> Интересные факты</h2>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <div class="fact-icon">🏎️</div>
+                        <h3>Скорость</h3>
+                        <p>Болид F1 разгоняется до 100 км/ч за 2 секунды</p>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">🔥</div>
+                        <h3>Температура</h3>
+                        <p>Тормоза разогреваются до 1000°C во время гонки</p>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">⏱️</div>
+                        <h3>Пит-стоп</h3>
+                        <p>Самый быстрый пит-стоп составил 1.82 секунды</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="drivers" class="page">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-user"></i> Пилоты Формулы 1</h1>
+            <div class="filters">
+                <input type="text" id="driver-search" placeholder="Поиск пилота..." class="search-input">
+                <select id="team-filter" class="filter-select">
+                    <option value="">Все команды</option>
+                </select>
+            </div>
+            <div class="drivers-grid" id="drivers-grid">
+            </div>
+        </div>
+    </section>
+    <section id="teams" class="page">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-car"></i> Команды Формулы 1</h1>
+            <div class="teams-grid" id="teams-grid">
+            </div>
+        </div>
+    </section>
+    <section id="standings" class="page">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-trophy"></i> Турнирная таблица</h1>
+            
+            <div class="standings-tabs">
+                <button class="tab-btn active" data-tab="drivers-standings">Чемпионат пилотов</button>
+                <button class="tab-btn" data-tab="constructors-standings">Кубок конструкторов</button>
+            </div>
+
+            <div class="tab-content active" id="drivers-standings">
+                <div class="standings-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Поз.</th>
+                                <th>Пилот</th>
+                                <th>Команда</th>
+                                <th>Очки</th>
+                                <th>Победы</th>
+                                <th>Подиумы</th>
+                            </tr>
+                        </thead>
+                        <tbody id="drivers-standings-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="constructors-standings">
+                <div class="standings-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Поз.</th>
+                                <th>Команда</th>
+                                <th>Очки</th>
+                                <th>Победы</th>
+                                <th>Подиумы</th>
+                            </tr>
+                        </thead>
+                        <tbody id="constructors-standings-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="calendar" class="page">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-calendar"></i> Календарь Гран-при</h1>
+            <div class="calendar-grid" id="calendar-grid">
+            </div>
+        </div>
+    </section>
+    <section id="media" class="page">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-video"></i> Медиа и видео</h1>
+            
+            <div class="media-tabs">
+                <button class="media-tab-btn active" data-tab="videos">Видео</button>
+                <button class="media-tab-btn" data-tab="news">Новости</button>
+            </div>
+
+            <div class="media-content active" id="videos">
+                <div class="videos-grid" id="videos-grid">
+                </div>
+            </div>
+
+            <div class="media-content" id="news">
+                <div class="news-list" id="news-list">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-info-circle"></i> О проекте</h1>
+            
+            <div class="about-content">
+                <div class="about-card">
+                    <h2><i class="fas fa-rocket"></i> О нас</h2>
+                    <p>F1 Universe - проект, посвященный самому технологичному и зрелищному виду автоспорта - Формуле 1. Мы собираем и предоставляем самую актуальную информацию о командах, пилотах, гонках и событиях мира Ф1.</p>
+                </div>
+
+                <div class="about-card">
+                    <h2><i class="fas fa-link"></i> Официальные ресурсы</h2>
+                    <div class="official-links">
+                        <a href="https://www.formula1.com" target="_blank" class="official-link">
+                            <i class="fas fa-globe"></i> Официальный сайт F1
+                        </a>
+                        <a href="https://www.fia.com" target="_blank" class="official-link">
+                            <i class="fas fa-flag"></i> FIA - Международная автомобильная федерация
+                        </a>
+                        <a href="https://www.instagram.com/f1" target="_blank" class="official-link">
+                            <i class="fab fa-instagram"></i> F1 в Instagram
+                        </a>
+                        <a href="https://www.youtube.com/f1" target="_blank" class="official-link">
+                            <i class="fab fa-youtube"></i> F1 на YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2><i class="fas fa-chart-line"></i> Статистика проекта</h2>
+                    <div class="stats-grid">
+                        <div class="project-stat">
+                            <div class="project-stat-number" id="total-drivers">0</div>
+                            <div class="project-stat-label">Пилотов в базе</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-number" id="total-teams">0</div>
+                            <div class="project-stat-label">Команд в базе</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-number" id="total-races">0</div>
+                            <div class="project-stat-label">Гран-при в календаре</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2><i class="fas fa-envelope"></i> Контакты</h2>
+                    <p>По вопросам сотрудничества и предложениям:</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> bekturzunusbaev@gmail.com</p>
+                        <p><i class="fab fa-github"></i> @dikveyy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal" id="team-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="team-modal-body">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="driver-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="driver-modal-body">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="race-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="race-modal-body">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>F1 Universe</h3>
+                    <p>Все новости Формуле 1.</p>
+                    <div class="social-links">
+                        <a href="https://www.fia.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.formula1.com""><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/f1"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/f1"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Разделы</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#drivers">Пилоты</a></li>
+                        <li><a href="#teams">Команды</a></li>
+                        <li><a href="#standings">Турнир</a></li>
+                        <li><a href="#calendar">Календарь</a></li>
+                        <li><a href="#media">Медиа</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="https://www.formula1.com" target="_blank">Официальный сайт F1</a></li>
+                        <li><a href="https://www.fia.com" target="_blank">Сайт FIA</a></li>
+                        <li><a href="https://www.motorsport.com/f1/" target="_blank">Motorsport.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Юридическая информация</h3>
+                    <p>©dikveyy 2025 F1 Universe.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Сделано от dikveyy<i class="fas fa-heart" style="color: #e10600;"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
